@@ -62,7 +62,7 @@ void Error(int i, ...)
 		free(str);
 	}
 
-	va_end(arg);
+	
 	free_nodes();
 	exit(EXIT_FAILURE);
 }
