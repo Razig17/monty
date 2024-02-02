@@ -47,6 +47,8 @@ void find_opcode(char *opcode, char *value, int line_no)
 	    {"add", add},
 	    {NULL, NULL}};
 
+	if (opcode[0] == '#')
+		return;
 	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
 	{
 		if (strcmp(opcode, func_list[i].opcode) == 0)
