@@ -1,7 +1,6 @@
 #include "monty.h"
 stack_t *head = NULL;
 
-
 /**
  * main - monty program
  * @argc: arguments count
@@ -11,10 +10,11 @@ stack_t *head = NULL;
 int main(int argc, char *argv[])
 {
 	FILE *file = NULL;
+
 	if (argc != 2)
 		Error(0);
 	file = fopen(argv[1], "r");
-	
+
 	if (file == NULL)
 	{
 
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 	return (0);
 }
 /**
- * error - Prints appropiate error messages determined by their error code.
+ * Error - Prints appropiate error messages determined by their error code.
  * @i: The error code:
  *
  */
@@ -49,12 +49,11 @@ void Error(int i, ...)
 		fprintf(stderr, "L%d: usage: push integer\n", va_arg(arg, int));
 	else if (i == 5)
 		fprintf(stderr, "L%d: can't pint, stack empty\n",
-				va_arg(arg, int));
+			va_arg(arg, int));
 	else if (i == 6)
 		fprintf(stderr, "L%d: can't pop an empty stack\n",
-				va_arg(arg, int));
-	
-	if  (i == 2)
+			va_arg(arg, int));
+	if (i == 2)
 	{
 		num = va_arg(arg, int);
 		str = va_arg(arg, char *);
@@ -62,11 +61,15 @@ void Error(int i, ...)
 		free(str);
 	}
 
-	
 	free_nodes();
 	exit(EXIT_FAILURE);
 }
 
+
+/**
+ * free_nodes - frees the stack nodes
+ *
+ */
 void free_nodes(void)
 {
 	stack_t *tmp;

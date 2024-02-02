@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * new_node - creates a new stack_t node .
+ * @n: an integer.
+ *
+ * Return: the node.
+ */
 stack_t *new_node(int n)
 {
 	stack_t *node;
@@ -12,6 +17,12 @@ stack_t *new_node(int n)
 	node->n = n;
 	return (node);
 }
+
+/**
+ * push - push a node to the stack.
+ * @new_node: Pointer to a pointer pointing to top node of the stack.
+ * @line_no: Interger representing the line number of of the opcode.
+ */
 
 void push(stack_t **new_node, __attribute__((unused)) unsigned int line_no)
 {
@@ -30,6 +41,12 @@ void push(stack_t **new_node, __attribute__((unused)) unsigned int line_no)
 	tmp->prev = head;
 }
 
+
+/**
+ * pall - prints all nodes of the stack.
+ * @top_node: Pointer to a pointer pointing to top node of the stack.
+ * @line_no: Interger representing the line number of of the opcode.
+ */
 void pall(stack_t **top_node, __attribute__((unused)) unsigned int line_no)
 {
 	stack_t *tmp;

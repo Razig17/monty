@@ -1,6 +1,13 @@
 #include "monty.h"
 #include <stdio.h>
 
+/**
+ * read_file - reads the content of the file.
+ * @file: the file.
+ *
+ * Return: 0
+ */
+
 int read_file(FILE *file)
 {
 	int line_no = 0;
@@ -15,6 +22,13 @@ int read_file(FILE *file)
 
 	return (0);
 }
+
+/**
+ * tokenize - tokenizes a line.
+ * @buff: the line.
+ * @line_no: Interger representing the line number of of the opcode.
+ * Return: 0
+ */
 
 int tokenize(char *buff, int line_no)
 {
@@ -31,39 +45,16 @@ int tokenize(char *buff, int line_no)
 	find_opcode(opcode, value, line_no);
 	return (0);
 }
-
-void find_opcode(char *opcode, char *value, int line_no)
-{
-	int i;
-	int err;
-
-	instruction_t func_list[] = {
-	    {"push", push},
-	    {"pall", pall},
-	    {"pint", pint},
-	    {"pop", pop},
-	    {"swap", swap},
-	    {"nop", nop},
-	    {"add", add},
-	    {NULL, NULL}};
-
-	if (opcode[0] == '#')
-		return;
-	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
-	{
-		if (strcmp(opcode, func_list[i].opcode) == 0)
-		{
-			call_fun(func_list[i].f, opcode, value, line_no);
-			err = 0;
-		}
-	}
-	if (err == 1)
-	{
-		Error(2, line_no, opcode);
-	}
-}
-
+/**
+ * call_fun - finds the wanted opcode.
+ * @func: the opcode function.
+ * @ln: Interger representing the line number of of the opcode.
+ * @val: a string stores the value after the opcode.
+ * @op: opcode name
+ *
+ */
 void call_fun(op_func func, char *op, char *val, int ln)
+
 {
 	stack_t *node;
 	int sign;
@@ -88,7 +79,52 @@ void call_fun(op_func func, char *op, char *val, int ln)
 		func(&node, ln);
 	}
 	else
-	{
 		func(&head, ln);
+}
+
+
+
+
+
+/**
+ * find_opcode - finds the wanted opcode.
+ * @opcode: opcode name.
+ * @line_no: Interger representing the line number of of the opcode.
+ * @value: a string stores the value after the opcode.
+ */
+void find_opcode(char *opcode, char *value, int line_no)
+{
+	int i;
+	int err;
+
+	instruction_t func_list[] = {
+	    {"push", push},
+	    {"pall", pall},
+	    {"pint", pint},
+	    {"pop", pop},
+	    {"swap", swap},
+	    {"nop", nop},
+	    {"add", add},
+	    {"sub", sub},
+	    {"mod", mod},
+	    {"div", _div},
+	    {"mul", mul},
+	    {NULL, NULL}};
+
+	if (opcode[0] == '#')
+		return;
+	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
+	{
+		if (strcmp(opcode, func_list[i].opcode) == 0)
+		{
+			call_fun(func_list[i].f, opcode, value, line_no);
+			err = 0;
+		}
+	}
+	if (err == 1)
+	{
+		Error(2, line_no, opcode);
 	}
 }
+
+
