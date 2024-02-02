@@ -39,7 +39,6 @@ void Error(int i, ...)
 	char *str;
 
 	va_start(arg, i);
-
 	if (i == 0)
 		fprintf(stderr, "USAGE: monty file\n");
 	else if (i == 1)
@@ -47,8 +46,14 @@ void Error(int i, ...)
 	else if (i == 3)
 		fprintf(stderr, "Error: malloc failed\n");
 	else if (i == 4)
-	fprintf(stderr, "L%d: usage: push integer\n", va_arg(arg, int));
-
+		fprintf(stderr, "L%d: usage: push integer\n", va_arg(arg, int));
+	else if (i == 5)
+		fprintf(stderr, "L%d: can't pint, stack empty\n",
+				va_arg(arg, int));
+	else if (i == 6)
+		fprintf(stderr, "L%d: can't pop an empty stack\n",
+				va_arg(arg, int));
+	
 	if  (i == 2)
 	{
 		num = va_arg(arg, int);

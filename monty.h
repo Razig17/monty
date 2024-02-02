@@ -20,9 +20,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 extern stack_t *head;
@@ -38,19 +38,23 @@ typedef void (*op_func)(stack_t **, unsigned int);
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t;  
-
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
 
 void call_fun(op_func func, char *op, char *val, int ln);
 void Error(int i, ...);
 int read_file(FILE *file);
 int tokenize(char *buff, int line_no);
-void find_opcode(char *opcode , char *value, int line_no);
-stack_t *new_node(int n);
-void push(stack_t **new_node, __attribute__((unused))unsigned int line_no);
-void pall(stack_t **head, __attribute__((unused))unsigned int line_no);
+void find_opcode(char *opcode, char *value, int line_no);
+
 void free_nodes(void);
+stack_t *new_node(int n);
+void push(stack_t **new_node, __attribute__((unused)) unsigned int line_no);
+void pall(stack_t **head, __attribute__((unused)) unsigned int line_no);
+void pop(stack_t **stack, unsigned int line_no);
+void pint(stack_t **stack, unsigned int line_no);
+void nop(stack_t **stack, unsigned int line_no);
+void swap(stack_t **stack, unsigned int line_no);
 
 #endif
