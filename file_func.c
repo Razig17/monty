@@ -44,6 +44,7 @@ void find_opcode(char *opcode, char *value, int line_no)
 	    {"pop", pop},
 	    {"swap", swap},
 	    {"nop", nop},
+	    {"add", add},
 	    {NULL, NULL}};
 
 	for (err = 1, i = 0; func_list[i].opcode != NULL; i++)
