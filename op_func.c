@@ -8,7 +8,7 @@
 void pint(stack_t **stack, unsigned int line_no)
 {
 	if (stack == NULL || *stack == NULL)
-		error(5, line_no);
+		Error(5, line_no);
 	printf("%d\n", (*stack)->n);
 }
 

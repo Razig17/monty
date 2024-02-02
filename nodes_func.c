@@ -43,5 +43,3 @@ void pall(stack_t **top_node, __attribute__((unused)) unsigned int line_no)
 		tmp = tmp->next;
 	}
 }
-
-
