@@ -67,8 +67,6 @@ void swap(stack_t **stack, unsigned int line_no)
 	*stack = tmp;
 }
 
-
-
 /**
  * add - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
@@ -79,7 +77,10 @@ void add(stack_t **stack, unsigned int line_no)
 	int sum;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
 		fprintf(stderr, "L%d: can't %s, stack too short\n", line_no, "add");
+		Error(100);
+	}
 
 	(*stack) = (*stack)->next;
 	sum = (*stack)->n + (*stack)->prev->n;
@@ -87,4 +88,3 @@ void add(stack_t **stack, unsigned int line_no)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
-
