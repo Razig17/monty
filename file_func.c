@@ -73,7 +73,7 @@ void call_fun(op_func func, char *op, char *val, int ln)
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
-				Error(3, ln);
+				Error(4, ln);
 		}
 		node = new_node(atoi(val) * sign);
 		func(&node, ln);
