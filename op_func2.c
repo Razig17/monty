@@ -81,7 +81,7 @@ void mod(stack_t **stack, unsigned int line_no)
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
 	{
-		fprintf(stderr, "L%d: can't %s, stack too short\n", line_no, "mode");
+		fprintf(stderr, "L%d: can't %s, stack too short\n", line_no, "mod");
 		Error(100);
 	}
 
