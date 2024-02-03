@@ -69,7 +69,7 @@ void call_fun(op_func func, char *op, char *val, int ln)
 			sign = -1;
 		}
 		if (val == NULL)
-			Error(3, ln);
+			Error(4, ln);
 		for (i = 0; val[i] != '\0'; i++)
 		{
 			if (isdigit(val[i]) == 0)
