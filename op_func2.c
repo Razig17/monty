@@ -96,3 +96,28 @@ void mod(stack_t **stack, unsigned int line_no)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * pchar - Prints the char at the top of the stack.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_no: Interger representing the line number of of the opcode.
+ */
+void pchar(stack_t **stack, unsigned int line_no)
+
+{
+	int num;
+
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_no);
+		Error(100);
+	}
+	num = (*stack)->n;
+	if (num > 127 || num < 0)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_no);
+		Error(100);
+	}
+
+	printf("%c\n", num);
+}
