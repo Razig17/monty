@@ -14,7 +14,7 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 	stack_t *tmp;
 
 
-	if (*stack == NULL || stack == NULL)
+	if (stack == NULL || *stack == NULL)
 	{
 		printf("\n");
 		return;
@@ -26,10 +26,11 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 
 		if (num > 127 || num <= 0)
 		{
-			printf("\n");
+			
 			break;
 		}
 		printf("%c", num);
 		tmp = tmp->next;
 	}
+	printf("\n");
 }
