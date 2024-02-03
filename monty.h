@@ -64,5 +64,7 @@ void mul(stack_t **stack, unsigned int line_no);
 void pchar(stack_t **stack, unsigned int line_no);
 void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no);
 void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_no);
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_no);
+
 
 #endif

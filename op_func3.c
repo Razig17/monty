@@ -36,7 +36,7 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 
 
 /**
- * rotl -  rotates the stack to the top..
+ * rotl -  rotates the stack to the top.
  * @stack: Pointer to a pointer pointing to top node of the stack.
  * @line_no: Interger representing the line number of of the opcode.
  */
@@ -59,5 +59,32 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 	*stack = tmp;
 
 
+
+}
+
+
+
+
+/**
+ * rotr -  rotates the stack to the bottom.
+ * @stack: Pointer to a pointer pointing to top node of the stack.
+ * @line_no: Interger representing the line number of of the opcode.
+ */
+
+void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
+{
+	stack_t *tmp;
+
+	if (stack == NULL || *stack == NULL)
+		return;
+	tmp = *stack;
+
+	while (tmp->next)
+		tmp = tmp->next;
+
+	tmp->prev->next = NULL;
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	*stack = tmp;
 
 }

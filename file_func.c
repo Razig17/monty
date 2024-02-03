@@ -112,6 +112,7 @@ void find_opcode(char *opcode, char *value, int line_no)
 	    {"pchar", pchar},
 	    {"pstr", pstr},
 	    {"rotl", rotl},
+	    {"rotr", rotr},
 	    {NULL, NULL}};
 
 	if (opcode[0] == '#')
