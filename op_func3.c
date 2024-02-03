@@ -75,17 +75,17 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 {
 	stack_t *tmp;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 	tmp = *stack;
 
 	while (tmp->next)
 		tmp = tmp->next;
 
-	tmp->next = *stack;
 	tmp->prev->next = NULL;
+	tmp->next = *stack;
 	tmp->prev = NULL;
 	(*stack)->prev = tmp;
-	(*stack) = tmp;
-	
+	*stack = tmp;
+
 }
