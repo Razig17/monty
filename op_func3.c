@@ -8,12 +8,11 @@
  * @line_no: Interger representing the line number of of the opcode.
  */
 
-void pstr(stack_t **stack, unsigned int line_no)
+void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 {
 	int num;
 	stack_t *tmp;
 
-	(void)line_no;
 
 	if (*stack == NULL || stack == NULL)
 	{
