@@ -45,7 +45,7 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 {
 	stack_t *tmp;
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 		return;
 	tmp = *stack;
 
