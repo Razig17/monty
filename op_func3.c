@@ -18,6 +18,7 @@ void pstr(stack_t **stack, unsigned int line_no)
 	if (*stack == NULL || !((*stack)->n))
 	{
 		printf("\n");
+		return;
 	}
 	tmp = *stack;
 	while (tmp)
