@@ -10,7 +10,7 @@
 
 void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 {
-	int num;
+	int num = 0;
 	stack_t *tmp;
 
 
