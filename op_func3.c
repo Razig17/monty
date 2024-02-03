@@ -84,6 +84,7 @@ void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 
 	tmp->prev->next = NULL;
 	tmp->next = *stack;
+	tmp->prev = NULL;
 	(*stack)->prev = tmp;
 	*stack = tmp;
 
