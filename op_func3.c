@@ -15,7 +15,7 @@ void pstr(stack_t **stack, unsigned int line_no)
 
 	(void)line_no;
 
-	if (*stack == NULL)
+	if (*stack == NULL || !((*stack)->n))
 	{
 		printf("\n");
 	}
@@ -23,14 +23,13 @@ void pstr(stack_t **stack, unsigned int line_no)
 	while (tmp)
 	{
 		num = tmp->n;
-		printf("%c", num);
-		tmp = tmp->next;
+		
 		if (num > 127 || num == 0)
 		{
 			printf("\n");
 			break;
 		}
+		printf("%c", num);
+		tmp = tmp->next;
 	}
-
-	(void)line_no;
 }
