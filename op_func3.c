@@ -23,7 +23,7 @@ void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 	while (tmp)
 	{
 		num = tmp->n;
-		
+
 		if (num > 127 || num <= 0)
 		{
 			printf("\n");
