@@ -53,12 +53,10 @@ void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_no)
 		tmp = tmp->next;
 
 	tmp->next = *stack;
-	tmp = (*stack)->next;
-	(*stack)->next->prev = (*stack)->next;
-	(*stack)->next = NULL;
-	*stack = tmp;
-
-
+	(*stack)->prev = tmp;
+	*stack = (*stack)->next;
+	(*stack)->prev->next = NULL;
+	(*stack)->prev = NULL;
 
 }
 
