@@ -4,4 +4,4 @@ the number is the ascii value
 +++++.                   h (104)
 +++++++..                oo (111)
 ---.                     l (108)
->++++++++++.             new line
+>++++++++++.             new line (10)
