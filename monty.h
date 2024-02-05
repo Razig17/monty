@@ -42,12 +42,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void call_fun(op_func func, char *op, char *val, int ln);
+void call_fun(op_func func, char *op, char *val, int ln, int type);
 void Error(int i, ...);
 int read_file(FILE *file);
-int tokenize(char *buff, int line_no);
-void find_opcode(char *opcode, char *value, int line_no);
+int tokenize(char *buff, int line_no, int type);
+void find_opcode(char *opcode, char *value, int line_no, int type);
 
+void push_to_queue(stack_t **new_node);
 void free_nodes(void);
 stack_t *new_node(int n);
 void push(stack_t **new_node, __attribute__((unused)) unsigned int line_no);
@@ -65,6 +66,5 @@ void pchar(stack_t **stack, unsigned int line_no);
 void pstr(stack_t **stack, __attribute__((unused)) unsigned int line_no);
 void rotl(stack_t **stack, __attribute__((unused)) unsigned int line_no);
 void rotr(stack_t **stack, __attribute__((unused)) unsigned int line_no);
-
 
 #endif
